@@ -8,12 +8,16 @@ require('dotenv').config();
 
 //Constants
 const PORT = process.env.PORT;
-//Routers
 
+//Import Routers
+const portfolioRouter = require('./routes/portfolio.controller.js');
 
 //Middleware
 app.use(cors())
 app.use(express.json())
 
+//Use routers
+app.use('/portfolio', portfolioRouter);
 
+//Start 
 app.listen(PORT, console.log(`Listening on port ${PORT}`))
