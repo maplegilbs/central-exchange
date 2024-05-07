@@ -1,3 +1,5 @@
+//Handle errors and sending of responses for routes, takes in error, request and response
+//Sends a response with 500 error
 function handleError(error, req, res) {
     console.error(`Error at ${req.originalUrl}.  Error: ${error}`);
     if(req.params){ console.log('Params provided: ', req.params)}
