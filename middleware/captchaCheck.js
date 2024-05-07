@@ -1,3 +1,4 @@
+//Check captcha passes, throw new error and set response status to 500 if not
 async function captchaCheck(req, res, next) {
     try {
         let { recaptchaValue } = req.body
