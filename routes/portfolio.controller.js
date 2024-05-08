@@ -46,7 +46,6 @@ router.get('/resume', async (req, res) => {
                 //get the file and stats from the file
                 const filePath = path.join(__dirname, '../public/Portfolio_2024_Resume.pdf');
                 const fileStats = fs.statSync(filePath);
-                console.log(filePath, fileStats)
                 //write to the response header
                 res.writeHead(200, {
                     'Content-Type': 'application/json',

@@ -4,7 +4,10 @@ const app = express();
 const cors = require('cors');
 
 //DEV ONLY
-require('dotenv').config();
+console.log(process.env.NODE_ENV)
+if (!process.env.NODE_ENV === 'production'){
+    require('dotenv').config();
+}
 
 //Constants
 const PORT = process.env.PORT;
