@@ -1,5 +1,6 @@
 //Libraries
-const SpypointClient = require('spypoint-api-wrapper')
+// const SpypointClient = require('spypoint-api-wrapper')
+import SpypointClient from 'spypoint-api-wrapper';
 //Functions
 const {getPhotoURLs} = require('./getPhotoURLsFromAWS.js');
 const {sendPhotoToAWS} = require('./sendPhotosToAWS.js');

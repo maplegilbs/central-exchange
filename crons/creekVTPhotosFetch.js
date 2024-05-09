@@ -7,6 +7,7 @@ const { cameraListByOwner } = require (path.join(process.cwd(), '/utils/creekvtc
 
 //CRON job (to be run by heroku scheduler)
 for (let owner of Object.keys(cameraListByOwner)){
+    console.log('cron running')
     let curOwnerUserName = cameraListByOwner[owner].username;
     let curOwnerPassword = cameraListByOwner[owner].password;
     let curOwnerCameraIDs = cameraListByOwner[owner].cameras;
