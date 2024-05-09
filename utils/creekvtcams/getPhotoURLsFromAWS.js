@@ -1,7 +1,6 @@
-/*--Development only
-import 'dotenv/config'
---*/
-
+if (process.env.NODE_ENV !== 'production'){
+    require('dotenv').config();
+}
 
 //Start at by river
 const startAt = {

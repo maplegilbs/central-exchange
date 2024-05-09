@@ -1,7 +1,6 @@
-/*Development only
-import dotenv from 'dotenv';
-dotenv.config();
-remove before loading to heroku*/
+if (process.env.NODE_ENV !== 'production'){
+    require('dotenv').config();
+}
 
 //for each user, log in -- then get photos from each camera in list (id list) belonging to individual users - get most recent 2 photos - see if they already exist in aws, if not add to aws 
 

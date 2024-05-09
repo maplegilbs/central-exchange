@@ -1,6 +1,6 @@
-/*--Development only
-import 'dotenv/config'
---*/
+if (process.env.NODE_ENV !== 'production'){
+    require('dotenv').config();
+}
 
 //Libraries
 const AWS = require('aws-sdk');
