@@ -11,7 +11,7 @@ const faqRouter = require('./creekvtraces/faq.controller.js')
 const registrationRouter = require('./creekvtraces/registration.controller.js')
 const contactRouter = require('./creekvtraces/contact.controller.js')
 const sponsorRouter = require('./creekvtraces/sponsors.controller.js')
-const imagesRouter = require('./creekvtraces/images.router.js')
+const imagesRouter = require('./creekvtraces/images.controller.js')
 
 
 router.use('/races', racesRouter)
