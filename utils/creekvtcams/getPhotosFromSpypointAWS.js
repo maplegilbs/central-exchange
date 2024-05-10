@@ -7,6 +7,7 @@ async function initialize() {
         const { getPhotoURLs } = require('./getPhotoURLsFromAWS.js');
         const { sendPhotoToAWS } = require('./sendPhotosToAWS.js');
 
+        //for each user, log in -- then get photos from each camera in list (id list) belonging to individual users - get most recent 2 photos - see if they already exist in aws, if not add to aws 
         module.exports.getPhotosFromSpypointByCameraIDs = async function getPhotosFromSpypointByCameraIDs(userName, password, cameraIDs) {
             const Spypoint = new SpypointClient();
             try {
@@ -25,10 +26,14 @@ async function initialize() {
                             const existingImages = await getPhotoURLs({ riverName: directoryName, quantity: 1000 });
                             if (!existingImages.includes(`https://creekvtrivercams.s3.amazonaws.com/${directoryName}/${photoName}.jpg`)) {
                                 await sendPhotoToAWS(`${directoryName}/${photoName}.jpg`, buffer)
+                                console.log('The following image was added to AWS')
+                                console.log(`https://creekvtrivercams.s3.amazonaws.com/${directoryName}/${photoName}.jpg`)
                             }
-                            console.log(`https://creekvtrivercams.s3.amazonaws.com/${directoryName}/${photoName}.jpg`)
+                            else {
+                                console.log("The following image already exists in AWS")
+                                console.log(`https://creekvtrivercams.s3.amazonaws.com/${directoryName}/${photoName}.jpg`)
+                            }
                         }
-
                     }
                     catch (error) {
                         console.error(`There was an error in fetching and saving photos from camera ${cameraID}.  Error: ${error}.`);

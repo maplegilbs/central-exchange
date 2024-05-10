@@ -6,8 +6,8 @@
     const { cameraListByOwner } = require('../utils/creekvtcams/cameraList.js');
 
     //CRON job (to be run by heroku scheduler)
+//Cycle through camera owners object.  For each owner run the get photos from spypoint and send to aws
     for (let owner of Object.keys(cameraListByOwner)) {
-        console.log('cron running', getPhotosFromSpypointByCameraIDs, cameraListByOwner)
         let curOwnerUserName = cameraListByOwner[owner].username;
         let curOwnerPassword = cameraListByOwner[owner].password;
         let curOwnerCameraIDs = cameraListByOwner[owner].cameras;
