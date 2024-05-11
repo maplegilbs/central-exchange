@@ -8,7 +8,7 @@ const path = require('path');
 //Utility functions
 const { handleError } = require("../utils/handleError.js");
 const { captchaCheck } = require("../middleware/captchaCheck.js");
-const {sendEmail} = require("../utils/emails.js")
+const { sendEmail } = require("../utils/emails.js")
 
 const pool = mysql.createPool({
     host: process.env.DB_HOST,
@@ -64,12 +64,12 @@ router.get('/resume', async (req, res) => {
     }
 })
 
-router.post('/contact', captchaCheck, async(req, res)=> {
+router.post('/contact', captchaCheck, async (req, res) => {
     try {
         const message = `<p>Message from ${req.body.contactName}.</p><p>Contact email ${req.body.contactEmail}</p><p>Message: ${req.body.contactMessage}</p>`
         const sentEmail = await sendEmail('portfolio', 'sapmappers', 'scott@sapmappers.com', 'Portfolio Contact', message)
         console.log(sentEmail)
-        res.status(200).json({message: 'Success'})
+        res.status(200).json({ message: 'Success' })
     } catch (error) {
         handleError(error, req, res)
     }
