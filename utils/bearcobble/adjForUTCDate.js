@@ -5,7 +5,9 @@ function adjustForUTC(timeToConvert) {
     let now = new Date()
     let std = new Date(now.getFullYear(), 0, 1);
     let dst = new Date(now.getFullYear(), 6, 7);
-    console.log("Offset calc: ", std.getTimezoneOffset(), dst.getTimezoneOffset(), now.getTimezoneOffset())
+    let estString = std.toLocaleString('en-US', { timeZone: 'America/New_York' });
+    let estDate = new Date(estString);
+    console.log("Offset calc: ", std.getTimezoneOffset(), dst.getTimezoneOffset(), estDate.getTimezoneOffset())
     if (std.getTimezoneOffset() > now.getTimezoneOffset()) {
         hourDiff = 4;
     }
