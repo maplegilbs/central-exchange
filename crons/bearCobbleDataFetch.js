@@ -1,7 +1,7 @@
 //Libraries
 // import cron from 'node-cron'; //development only
 // Functions
-const { insertData } = require('./utils/sendDataToDB.js');
+const { insertData } = require('../utils/bearcobble/sendDataToDB.js');
 
 
 //Schedule cron job (local)
