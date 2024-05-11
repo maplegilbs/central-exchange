@@ -5,9 +5,9 @@ if (process.env.NODE_ENV !== 'production'){
 }
 
 //Functions
-import { getSensorData } from './getSensorData.js';
-import { calcVolFromHeight } from './tankVolFromHeight.js'
-import { adjustForUTC } from './adjForUTCDate.js';
+const { getSensorData } = require('./getSensorData.js');
+const { calcVolFromHeight } = require('./tankVolFromHeight.js');
+const { adjustForUTC } = require('./adjForUTCDate.js');
 
 //Connect to database
 const pool = mysql.createPool(
