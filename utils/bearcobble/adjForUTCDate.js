@@ -10,7 +10,6 @@ function adjustForUTC(timeToConvert) {
     if(intlDate.includes('EDT')){
         hourDiff = 4
     }
-    console.log(hourDiff)
     timeToConvert.setUTCHours(currentHours - hourDiff);
     return timeToConvert;
 }

@@ -17,7 +17,6 @@ const { insertData } = require('../utils/bearcobble/sendDataToDB.js');
 async function logDataToDB(){
     try {
         let data = await insertData();
-        console.log(data)
     } catch (error) {
         console.error(`There was an error inserting the data into the database: ${error}`);
     }
