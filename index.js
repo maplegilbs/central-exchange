@@ -16,6 +16,7 @@ const PORT = process.env.PORT;
 const portfolioRouter = require('./routes/portfolio.controller.js');
 const creekVTRacesRouter = require('./routes/creekvtraces.controller.js')
 const creekVTCamsRouter = require('./routes/creekvtcams.controller.js')
+const creekVTFlowsRouter = require('./routes/creekvtflows.controller.js')
 //Middleware
 app.use(cors())
 app.use(express.json())
@@ -23,7 +24,8 @@ app.use(express.json())
 //Use routers
 app.use('/portfolio', portfolioRouter);
 app.use('/creekvt_racing', creekVTRacesRouter);
-app.use('/creekvt_cams', creekVTCamsRouter)
+app.use('/creekvt_cams', creekVTCamsRouter);
+app.use('/creekvt_flows', creekVTFlowsRouter);
 
 //Start 
 app.listen(PORT, console.log(`Listening on port ${PORT}`))
