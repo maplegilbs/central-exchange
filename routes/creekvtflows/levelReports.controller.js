@@ -38,7 +38,7 @@ router.get('/riverData', async (req, res) => {
 router.get('/flowReports', async (req, res) => {
     try {
         const {riverName, limit} = req.query;
-        const queryStatement = `select * from flowstable ${riverName ? `where riverName = '${riverName}'`: ''} order by tripDateTime desc ${limit ? `limit ${limit}`:''}`
+        const queryStatement = `select * from flowstable ${riverName ? `where LOWER(riverName) = '${riverName.toLowerCase()}'`: ''} order by tripDateTime desc ${limit ? `limit ${limit}`:''}`
         console.log(queryStatement)
         let results = await connection.query(queryStatement)
         res.status(200).json(results[0])
@@ -53,6 +53,23 @@ router.post('/levelsubmit', async (req, res) => {
     let dataKeys = Object.keys(req.body);
     let columnNames = ['submissionDateTime'];
     let columnValues = [new Date()];
+    let {levelType, level} = req.body;
+    let translatedTextLevel;
+    const levelLookup = {
+        1: 'Too Low',
+        2: 'Minimum',
+        3: 'Low',
+        4: 'Medium Low',
+        5: 'Medium',
+        6: 'Medium High',
+        7: 'High',
+        8: 'Too High'
+    }
+    if(levelType.toLowerCase().includes('subjective')){
+        translatedTextLevel = levelLookup[level]
+        columnNames.push('translatedTextLevel')
+        columnValues.push(translatedTextLevel)
+    }
     for (let key of dataKeys) {
         if (key !== 'gaugeReadings') {
             columnNames.push(key)
