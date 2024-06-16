@@ -7,7 +7,7 @@ function createURL(source, lat, long) {
     }
 }
 
-router.get('forecast', async (req, res) => {
+router.get('/forecast', async (req, res) => {
     try {
         const { source, lat, long } = req.query;
         let forecastResponse = await fetch(createURL(source, lat, long))
