@@ -10,6 +10,7 @@ function createURL(source, lat, long) {
 router.get('/forecast', async (req, res) => {
     try {
         const { source, lat, long } = req.query;
+        console.log(source, lat, long)
         let forecastResponse = await fetch(createURL(source, lat, long))
         if (forecastResponse.status < 199 || forecastResponse.status > 300) {
             throw new error(`Fetch to ${createURL(source, lat, long)} failed.`)
