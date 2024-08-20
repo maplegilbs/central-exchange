@@ -14,7 +14,7 @@ const connection = mysql.createPool({
 //GET -- get a list of all gauges
 router.get("/", async (req, res) => {
     try {
-        let queryStatement = `select * from gauges`;
+        let queryStatement = `select * from gauges where isActive`;
         let results = await connection.query(queryStatement)
         res.status(200).json(results[0])
     } catch (error) {
