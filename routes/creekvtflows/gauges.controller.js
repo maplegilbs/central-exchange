@@ -1,7 +1,7 @@
 //Libraries
 const router = require('express').Router();
 const mysql = require('mysql2')
-const {handleError} = require('../../utils/handleError.js')
+const { handleError } = require('../../utils/handleError.js')
 
 const connection = mysql.createPool({
     host: process.env.DB_HOST,
@@ -12,7 +12,7 @@ const connection = mysql.createPool({
 
 
 //GET -- get a list of all gauges
-router.get("/", async(req, res)=>{
+router.get("/", async (req, res) => {
     try {
         let queryStatement = `select * from gauges`;
         let results = await connection.query(queryStatement)
