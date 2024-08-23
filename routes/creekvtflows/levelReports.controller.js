@@ -34,17 +34,6 @@ router.get('/riverData', async (req, res) => {
     }
 })
 
-//GET -- list of all gauges
-router.get('/gaugeData', async (req, res)=>{
-    try {
-        const queryStatement = `SELECT gauge1Id, gauge1Name, GROUP_CONCAT(name ORDER by name) as rivers FROM riverData group by gauge1ID`
-        let results = await connection.query(queryStatement)
-        res.status(200).json(results[0])
-    } catch (error) {
-        handleError(error, req, res)
-    }
-})
-
 //GET -- list of all river data
 router.get('/flowReports', async (req, res) => {
     try {
