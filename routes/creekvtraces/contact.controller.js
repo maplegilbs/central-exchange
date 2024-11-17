@@ -32,7 +32,7 @@ router.post('/', captchaCheck, async (req, res) => {
         const subject = `Contact from ${name}`;
         const messageContent = `<p>From ${email}  ${raceName? '-- Regarding the ' + raceName: ""}</p><br/><p>${message}</p>`
         const recipient = raceName ? emailLookup.user[raceName.split(" ").join("").toLowerCase()] : 'gopaddling@creekvt.com';
-        const info = await sendEmail("general", recipient, subject, messageContent)
+        const info = await sendEmail("general", "creekvt", recipient, subject, messageContent)
         res.status(200).json(info)
     } catch (error) {
         res.status(500).json({message: `There was an error sending the message.  Please try contacting us via email.`})
