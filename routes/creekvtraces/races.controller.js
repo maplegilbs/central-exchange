@@ -38,7 +38,6 @@ router.get('/:raceName', async (req, res) => {
 
 //PATCH -- update race data based on race name -- PROTECTED
 router.patch('/:raceName', authenticateUser, async (req, res) => {
-    console.log(req.body)
     try {
         let modifiedRaces = req.races.map(race => race.split(' ').join('').toLowerCase())
         if (!modifiedRaces.includes(req.params.raceName)) {
@@ -52,7 +51,6 @@ router.patch('/:raceName', authenticateUser, async (req, res) => {
                 fieldUpdateValues.push(req.body[propertyName])
             }
             const queryStatement = `update race_details set ${fieldUpdatePreparedStatement} where name = "${req.body.name}" `
-            console.log(queryStatement, fieldUpdateValues)
             const updatedRace = await connection.query(queryStatement, fieldUpdateValues)
             res.status(200).json(updatedRace)
         }

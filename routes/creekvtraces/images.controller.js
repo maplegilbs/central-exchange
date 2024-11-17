@@ -10,9 +10,7 @@ const connection = mysql.createPool({
 
 
 router.get('/photographers', async (req, res) => {
-    console.log(req.query)
     let photographers = req.query.names.split(", ").map(photographer => `"${photographer}"`).join(", ")
-    console.log(photographers)
     try {
         const queryStatement = `select * from photographers where name IN (${photographers})`
         const photographerDetails = await connection.query(queryStatement);

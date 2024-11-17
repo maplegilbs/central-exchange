@@ -115,10 +115,8 @@ router.patch('/:raceName/:locationId', authenticateUser, async (req, res) => {
         else {
             let updateInfoArray = []
             for (let propertyName in req.body) {
-                console.log(`type: ${typeof req.body[propertyName]}: ${propertyName}`)
                 updateInfoArray.push(`${propertyName} = "${req.body[propertyName]}"`)
             }
-            console.log(updateInfoArray.join(', '))
             const queryStatement = `update map_info set ${updateInfoArray.join(', ')} where id = ${req.params.locationId}`
             console.log(queryStatement)
             const updatedLocation = await connection.query(queryStatement)
