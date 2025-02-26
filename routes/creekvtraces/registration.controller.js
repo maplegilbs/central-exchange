@@ -21,15 +21,15 @@ process.env.NODE_ENV === 'development' ?
 let payeeLookup;
 process.env.NODE_ENV === 'development' ?
 payeeLookup = {
-    peavinerace: process.env.PAYPAL_PEAVINERACE_PAYEE,
-    newhavenrace: process.env.PAYPAL_NEWHAVENRACE_PAYEE,
-    wellsriverrumble: process.env.PAYPAL_WELLSRIVERRUMBLE_PAYEE
-}
-:
-payeeLookup = {
     peavinerace: process.env.DEV_PAYPAL_TESTRACE_PAYEE,
     newhavenrace: process.env.DEV_PAYPAL_TESTRACE_PAYEE,
     wellsriverrumble: process.env.DEV_PAYPAL_TESTRACE_PAYEE
+}
+:
+payeeLookup = {
+    peavinerace: process.env.PAYPAL_PEAVINERACE_PAYEE,
+    newhavenrace: process.env.PAYPAL_NEWHAVENRACE_PAYEE,
+    wellsriverrumble: process.env.PAYPAL_WELLSRIVERRUMBLE_PAYEE
 }
 
 
@@ -91,7 +91,6 @@ async function calcTotal(orderData) {
 
 //Create paypal order - get an auth token, calculate the total and generate the payload with desired payment account (based on race name), then create the order via paypal api call
 async function createOrder(orderData) {
-    console.log(process.env.NODE_ENV, PAYPAL_CLIENT_ID)
     const token = await generateAccessToken()
     const url = `${PAYPAL_BASE_URL}/v2/checkout/orders`
     const orderValue = await calcTotal(orderData);
