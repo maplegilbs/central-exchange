@@ -62,7 +62,6 @@ function createReceiptMessage(raceName, raceDate, transactionID, racers, total) 
 
 //Async function used to send email
 async function sendEmail(sender, domain, recipient, subject, messageContent) {
-    console.log(sender, domain, recipient, emailLookup.user[sender], emailLookup.pass[sender])
     const transporter = nodeMailer.createTransport({
         host: `mail.${domain}.com`,
         port: 465,
