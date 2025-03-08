@@ -4,11 +4,11 @@ if (process.env.NODE_ENV !== 'production'){
 
 //Start at by river
 const startAt = {
-    "middlebury": "middlebury/PICT6507_2025-02-04.jpg",
+    "middlebury": "middlebury/PICT6505_2025-02-03.jpg",
     "bigbranch": "",
     "patterson": "",
     "newhaven": "newhaven/PICT3058_2025-03-07.jpg",
-    "northbranchlamoille": "northbranchlamoille/PICT1176_2025-03-07.jpg"
+    "northbranchlamoille": "northbranchlamoille/PICT1174_2025-03-07.jpg"
 }
 //Libraries
 const AWS = require('aws-sdk');
