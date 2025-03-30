@@ -31,7 +31,7 @@ const emailLookup = {
     }
 }
 
-function createReceiptMessage(raceName, raceDate, transactionID, racers, total) {
+function createReceiptMessage(raceName, raceDate, transactionID, racers, category, total) {
 
     let formattedRaceDate = formatDateTime(new Date(raceDate))
     let racersString = ""
@@ -47,7 +47,7 @@ function createReceiptMessage(raceName, raceDate, transactionID, racers, total) 
       <h3>Registration Details</h3>
       <p><strong>Transaction ID:</strong> <br/>&nbsp;&nbsp;${transactionID}</p>
       <p><strong>Total:</strong> <br/>&nbsp;&nbsp;${total}</p>
-      <p><strong>Category:</strong> <br/>&nbsp;&nbsp;Creek Boat</p>
+      <p><strong>Category:</strong> <br/>&nbsp;&nbsp;${category}</p>
       <p><strong>Racers:</strong> <br/>${racersString}</p>
     </div>
     <hr style='width: 70%; margin: 0 auto;'/>

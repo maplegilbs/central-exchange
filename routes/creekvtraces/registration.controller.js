@@ -215,7 +215,7 @@ router.post("/orders/capture/:orderID", async (req, res) => {
         let timeStamp = new Date();
         const raceName = registrationData.raceName.split(" ").join("").toLowerCase();
         const recipient = registrationData.racers[0].email;
-        const messageContent = createReceiptMessage(registrationData.raceName, date, jsonResponse.id, registrationData.racers, jsonResponse.purchase_units[0].payments.captures[0].amount.value)
+        const messageContent = createReceiptMessage(registrationData.raceName, date, jsonResponse.id, registrationData.racers, registrationData.category, jsonResponse.purchase_units[0].payments.captures[0].amount.value)
         await sendEmail(raceName,  "creekvt", recipient, "Your race registration receipt", messageContent)
         res.status(httpStatusCode).json({ orderData: jsonResponse, timeStamp: timeStamp })
     } catch (error) {
