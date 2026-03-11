@@ -15,7 +15,8 @@ const cameraListByOwner = {
         password: process.env.SGILBERT_PASSWORD,
         cameras: {
             "6021de4b1f1eb500145ec808": "middlebury",
-            "61947db5577bfb1f5943ff55": "newhaven",
+            // "61947db5577bfb1f5943ff55": "newhaven",
+            "613265d2550d07001444fe1d": "newhaven",
             "6137e5f6691b2500141b00b9": "northbranchlamoille",
             "6643c5d585424d8251e83cca": "patterson"
         }
