@@ -7,7 +7,8 @@ const startAt = {
     "middlebury": "middlebury/PICT7270_2025-11-17.jpg",
     "bigbranch": "bigbranch/PICT2560_2025-11-17.jpg",
     "patterson": "patterson/PICT2060_2025-11-17.jpg",
-    "newhaven": "newhaven/PICT0021_2026-03-10.jpg",
+    // "newhaven": "newhaven/PICT0021_2026-03-10.jpg",
+    "newhaven": "",
     "northbranchlamoille": "northbranchlamoille/PICT2057_2025-11-17.jpg"
 }
 //Libraries
