@@ -4,12 +4,12 @@ if (process.env.NODE_ENV !== 'production'){
 
 //Start at by river
 const startAt = {
-    "middlebury": "middlebury/PICT7305_2025-11-29.jpg",
-    "bigbranch": "bigbranch/PICT3345_2026-03-28.jpg",
-    "patterson": "patterson/PICT3125_2026-03-28.jpg",
+    "middlebury": "middlebury/PICT7613_2026-08-26.jpg",
+    "bigbranch": "bigbranch/PICT4478_2026-08-26.jpg",
+    "patterson": "patterson/PICT4338_2026-08-26.jpg",
     // "newhaven": "newhaven/PICT0021_2026-03-10.jpg",
-    "newhaven": "",
-    "northbranchlamoille": "northbranchlamoille/PICT2123_2025-12-04.jpg"
+    "newhaven": "newhaven/PICT0992_2026-08-18.jpg",
+    "northbranchlamoille": "northbranchlamoille/PICT3098_2026-08-04.jpg"
 }
 //Libraries
 const AWS = require('aws-sdk');
