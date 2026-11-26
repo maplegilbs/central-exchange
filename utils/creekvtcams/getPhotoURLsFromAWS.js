@@ -8,7 +8,7 @@ const startAt = {
     "bigbranch": "bigbranch/PICT4478_2026-08-26.jpg",
     "patterson": "patterson/PICT4338_2026-08-26.jpg",
     "newhaven": "newhaven/PICT0001_2026-11-23.jpg",
-    "northbranchlamoille": "northbranchlamoille/PICT3098_2026-08-04.jpg"
+    "northbranchlamoille": "northbranchlamoille/PICT0561_2026-11-23.jpg"
 }
 //Libraries
 const AWS = require('aws-sdk');
